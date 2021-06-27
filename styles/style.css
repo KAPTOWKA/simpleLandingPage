@@ -91,7 +91,7 @@ section p{
 }
 
 .banner-area .banner-img{
-    background-image: url("/img/newYork.jpg");
+    background-image: url("/SimpleLandingPage/img/newYork.jpg");
     position: absolute;
     top: 0;
     left: 0;
@@ -165,7 +165,7 @@ ul.about-content{
 
 .about-left{
     flex-basis: 40%;
-    background-image: url("/img/NY2.jpg");
+    background-image: url("/SimpleLandingPage/img/NY2.jpg");
 }
 .about-right{
     flex-basis: 60%;
