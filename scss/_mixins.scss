@@ -1,0 +1,18 @@
+@mixin ya-absolute-position($top: -1, $right: -1, $bottom: -1, $left: -1, $width: 100%){
+	position: absolute;
+	@if(is-set-value($top)){
+		top: $top;
+	}
+	@if(is-set-value($right)){
+		right: $right;
+	}
+	@if(is-set-value($bottom)){
+		bottom: $bottom;
+	}
+	@if(is-set-value($left)){
+		left: $left;
+	}
+	@if(type-of($width) == "number"){
+		width: $width;
+	}
+}

@@ -1,0 +1,359 @@
+@import "_reset.scss";
+@import "_mixins.scss";
+
+$content-color: #fff;
+$text-color: #000;
+$banner-btn: crimson;
+
+@function is-set-value($value) {
+	@return $value !=-1;
+}
+
+%flexw100-center-center-wrap {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+/*---------------------------HEADER AREA--------------------------*/
+header {
+	@include ya-absolute-position($top: 0, $left: 0, $width: 100%);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	z-index: 10;
+	color: $content-color;
+	padding: 35px 100px 0;
+	font-weight: 800;
+
+	h2 {
+		text-transform: uppercase;
+	}
+
+	nav {
+		display: flex;
+
+		li {
+			margin: 0 15px;
+
+			&:first-child {
+				margin-left: 0;
+			}
+
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+	}
+
+	@media (max-width: 1000px) {
+		padding: 20px 50px;
+	}
+
+	@media (max-width: 700px) {
+		flex-direction: column;
+
+		h2 {
+			margin-bottom: 15px;
+		}
+
+		nav {
+			li {
+				margin: 0 7px;
+			}
+		}
+	}
+}
+
+
+/*---------------------------banner AREA--------------------------*/
+section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 110px 100px;
+	justify-content: center;
+
+	p {
+		max-width: 800px;
+		text-align: center;
+		margin-bottom: 35px;
+		padding: 0 20px;
+		line-height: 2;
+	}
+
+	@media(max-width: 1000px) {
+		padding: 100px 50px;
+	}
+
+	@media(max-width: 600px) {
+		padding: 125px 30px;
+	}
+}
+
+.banner-area {
+	position: relative;
+	min-height: 100vh;
+	color: $content-color;
+	text-align: center;
+
+	.banner-img {
+		background: {
+			image: url("/img/newYork.jpg");
+			size: cover;
+		}
+
+		z-index: -1;
+		height: 100%;
+		@include ya-absolute-position($top:0, $left: 0, $width: 100%);
+
+		&:after {
+			content: "";
+			height: 100%;
+			@include ya-absolute-position($top:0, $left: 0, $width: 100%);
+			color: $text-color;
+			opacity: 0.5;
+		}
+	}
+
+	h1 {
+		margin-bottom: 15px;
+
+		font: {
+			size: 65px;
+			family: "Merienda";
+		}
+	}
+
+	h3 {
+		margin-bottom: 40px;
+		font-size: 25px;
+	}
+
+	a.banner-btn {
+		padding: 15px 35px;
+		background: $banner-btn;
+		border-radius: 50px;
+		text-transform: uppercase;
+	}
+
+	@media (max-width: 800px) {
+		min-height: 600px;
+
+		h1 {
+			font-size: 32px;
+		}
+
+		h3 {
+			font-size: 20px;
+		}
+
+		a.banner-btn {
+			padding: 15px 40px;
+		}
+	}
+}
+
+/*---------------------------about AREA--------------------------*/
+ul {
+	.about-content {
+		width: 100%;
+
+		li {
+			padding: 20px;
+			height: 290px;
+
+			background: {
+				clip: content-box;
+				size: cover;
+				position: center;
+			}
+
+			;
+		}
+	}
+}
+
+.about-left {
+	flex-basis: 40%;
+	border-image: url("/img/NY2.jpg");
+}
+
+.about-right {
+	flex-basis: 60%;
+}
+
+.about-area {
+	p {
+		max-width: 800px;
+		margin-bottom: 35px;
+		line-height: 1.5;
+		text-align: left;
+		padding-left: 0;
+	}
+}
+
+.section-title {
+	text-transform: uppercase;
+	font-size: 50px;
+	margin-bottom: 5%;
+}
+
+.about-right {
+	h2 {
+		margin-bottom: 3%;
+	}
+}
+
+.about-btn {
+	padding: 15px 35px;
+	background: $banner-btn;
+	border-radius: 50px;
+	text-transform: uppercase;
+	color: $content-color;
+}
+
+@media (max-width: 1000px) {
+	%basis100percent {
+		flex-basis: 100%;
+	}
+
+	.about-left {
+		@extend %basis100percent;
+	}
+
+	.about-right {
+		@extend %basis100percent;
+	}
+
+	.about-content {
+		li {
+			padding: 8px;
+		}
+	}
+
+	.about-area {
+		text-align: center;
+
+		p {
+			text-align: center;
+		}
+	}
+}
+
+
+/*---------------------------service AREA--------------------------*/
+#services {
+	background: #ddd;
+}
+
+ul {
+	&.services-content {
+		@extend %flexw100-center-center-wrap;
+	}
+}
+
+.services-content {
+	li {
+		padding: 0 30px;
+		flex-basis: 33%;
+		text-align: center;
+
+		i {
+			font-size: 50px;
+			color: $banner-btn;
+			margin-bottom: 25px;
+		}
+
+		h4 {
+			font-size: 20px;
+			margin-bottom: 25px;
+		}
+
+		p {
+			margin: 0;
+		}
+	}
+}
+
+@media (max-width: 1000px) {
+	.services-content {
+		li {
+			flex-basis: 100%;
+			margin-bottom: 65px;
+
+			p {
+				padding: 0;
+			}
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+
+			&:first-child {
+				margin-top: 15px;
+			}
+		}
+	}
+}
+
+
+/*---------------------------contacts AREA--------------------------*/
+#contact {
+	background: $content-color;
+}
+
+ul {
+	&.contact-content {
+		@extend %flexw100-center-center-wrap;
+	}
+}
+
+.contact-content{
+	li {
+		padding: 0 30px;
+		flex-basis: 33%;
+		text-align: center;
+		i{
+			font-size: 50px;
+			color: $banner-btn;
+			margin-bottom: 25px;
+		}
+		p{
+			margin: 0;
+		}
+	}
+}
+
+@media (max-width: 800px){
+	.contact-content{
+		li{
+			flex-basis: 100%;
+			margin-bottom: 65px;
+			&:first-child{
+				margin-top: 15px;
+			}
+			&:last-child{
+				margin-bottom: 0;
+			}
+			padding: 0;
+		}
+
+	}
+}
+
+
+footer{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	color: $content-color;
+	background-color: $text-color;
+	padding: 60px 0;
+}
